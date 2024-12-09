@@ -1,0 +1,75 @@
+<!doctype html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <title>{% block title %}{% endblock %} | Neo BookShop</title>
+    </head>
+
+    <body>
+
+        <nav class="py-6 px-6 flex justify-between items-center bg-gray-200 border-b border-gray-200 rounded-lg">
+    
+            
+            <a href="/" class="text-xl font-semibold text-gray-800 transform hover:scale-105 transition-all duration-300">Neo BookShop</a>
+
+
+
+            
+
+            <div class="space-x-6">
+                
+                <a href="{% url 'item:new' %}" class="px-6 py-3 text-lg font-semibold bg-blue-800 text-white rounded-xl hover:bg-blue-700 text-lg font-semibold hover:text-700">Add item</a>
+                {% if request.user.is_authenticated %}
+                    <a href="{% url 'conversation:inbox' %}" class="px-6 py-3 text-lg font-semibold bg-blue-500 text-white rounded-xl hover:bg-blue-700">Inbox</a>
+                    <a href="/admin/" class="px-6 py-3 text-lg font-semibold bg-green-500 text-white rounded-xl hover:bg-green-700">Admin</a>
+                {% else %}
+                    
+                    <a href="{% url 'core:signup' %}" class="px-6 py-3 text-lg font-semibold bg-[#c52c11] text-white rounded-xl hover:bg-[#d13a23]">Sign up</a>
+                    <a href="{% url 'core:login' %}" class="px-6 py-3 text-lg font-semibold bg-[#06af06] text-white rounded-xl hover:bg-[#0dbf5d]">Log in</a>
+
+                    
+                    
+
+                {% endif %}
+            </div>
+        </nav>
+
+        <marquee behavior="scroll" direction="left" scrollamount="12" style="font-size: 24px; font-weight: bold; color: white; background-color: #ed6834; padding: 10px; border-radius: 3px;">
+            Sale! &nbsp;&nbsp; Sale!! &nbsp;&nbsp; 20% off on all Products! Starts from 21st November to 7th December!!!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sale! &nbsp;&nbsp;Sale!!&nbsp;&nbsp; 20% off on all Products! Starts from 21st November to 7th December!!!
+        </marquee>
+       
+       
+
+        <div class="px-6 py-6">
+            {% block content %}
+            {% endblock %}
+        </div>
+
+        <!-- <footer class="py-6 px-6 flex justify-between bg-gray-800"> -->
+        <footer class="py-6 px-6 flex justify-between bg-[#01223f]">
+            <div class="w-2/3 pr-10">
+                <h2 class="mb-5 font-semibold text-white text-3xl">About</h2>
+
+                <p class="text-lg text-gray-400">Neo BookShop is an online BookStore marketplace made by Django.</p>
+            </div>
+
+            <div class="w-1/3">
+                <h3 class="mb-5 font-semibold text-white text-3xl">Menu</h3>
+
+                <ul class="space-y-2">
+                    <li><a href="{% url 'core:index' %}" class="text-lg text-blue-500 hover:text-blue-200">About</a></li>
+                    <li><a href="{% url 'core:contact' %}" class="text-lg text-blue-500 hover:text-blue-200">Contact</a></li>
+                    <li><a href="{% url 'core:index' %}" class="text-lg text-blue-500 hover:text-blue-200">Privacy Policy</a></li>
+                    <li><a href="{% url 'core:index' %}" class="text-lg text-blue-500 hover:text-blue-200">Term of use</a></li>
+                </ul>
+            </div>
+        </footer>
+    </body>
+</html>
+
+
