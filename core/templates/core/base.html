@@ -7,10 +7,10 @@
         <title>{% block title %}{% endblock %} | Neo BookShop</title>
     </head>
 
-    <body>
-        <!-- Navigation Bar -->
-        <nav class="py-6 px-6 flex flex-wrap justify-between items-center bg-gray-200 border-b border-gray-200 rounded-lg">
-            <a href="/" class="text-xl font-semibold text-gray-800 transform hover:scale-105 transition-all duration-300">
+    <body style="background-image: url('{{ MEDIA_URL }}/media/item_images/image.jpg');">
+                <!-- Navigation Bar -->
+        <nav class="py-6 px-6 flex flex-wrap justify-between items-center rounded-lg">
+            <a href="/" class="text-xl font-semibold text-black-800 transform hover:scale-105 transition-all duration-300">
                 Neo BookShop
             </a>
             <div class="space-x-6">
@@ -29,7 +29,7 @@
         </nav>
 
         <!-- Marquee Section -->
-        <div class="overflow-hidden bg-[#ed6834] py-3 px-6 rounded-lg">
+        <div class="overflow-hidden py-3 px-6 rounded-lg">
             <div class="whitespace-nowrap animate-marquee font-bold text-white text-xl">
                 Sale! Sale!! 20% off on all Products! Starts from 21st November to 7th December!!!
             </div>
@@ -37,6 +37,10 @@
 
         <!-- Animation CSS -->
         <style>
+            body{
+                background-image: url('{{ MEDIA_URL }}media/item_images/image.jpg');            
+            }
+
             @keyframes marquee {
                 from {
                     transform: translateX(100%);
